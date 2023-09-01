@@ -5,7 +5,7 @@
         <div class="row">
             <!-- Index Title -->
             <div class="col-6 d-flex justify-content-start align-items-end my-5">
-                <h1>Tipologie dei Progetti</h1>
+                <h1>Tecnologie dei Progetti</h1>
             </div>
             <!-- Link To Dashboard -->
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             @endif
-            <!-- Types Infos Table -->
+            <!-- Technologies Infos Table -->
             <div class="col-12">
                 <table class="table table-striped border">
                     <thead>
@@ -31,26 +31,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($types as $type)
+                        @foreach ($technologies as $technology)
                             <tr class="text-center">
-                                <!-- Type Id -->
-                                <td>{{ $type->id }}</td>
-                                <!-- Type Name -->
-                                <td>{{ $type->name }}</td>
-                                <!-- Type Slug -->
-                                <td>{{ $type->slug }}</td>
-                                <!-- Type Tools -->
+                                <!-- Technology Id -->
+                                <td>{{ $technology->id }}</td>
+                                <!-- Technology Name -->
+                                <td>{{ $technology->name }}</td>
+                                <!-- Technology Slug -->
+                                <td>{{ $technology->slug }}</td>
+                                <!-- Technology Tools -->
                                 <td>
-                                    <!-- Type Show Button -->
-                                    <a href="{{ route('admin.types.show', $type) }}" class="btn btn-info mx-1">
+                                    <!-- Technology Show Button -->
+                                    <a href="{{ route('admin.technologies.show', $technology) }}" class="btn btn-info mx-1">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <!-- Type Edit Button -->
-                                    <a href="{{ route('admin.types.edit', $type) }}" class="btn btn-warning mx-1">
+                                    <!-- Technology Edit Button -->
+                                    <a href="{{ route('admin.technologies.edit', $technology) }}" class="btn btn-warning mx-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <!-- Type Delete Button -->
-                                    <form class="type-delete-button d-inline-block mx-1" data-type-name="{{ $type->name }}" action="{{ route('admin.types.destroy', $type) }}" method="POST">
+                                    <!-- Technology Delete Button -->
+                                    <form class="technology-delete-button d-inline-block mx-1" data-technology-name="{{ $technology->name }}" action="{{ route('admin.technologies.destroy', $technology) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
@@ -60,10 +60,10 @@
                                 </td>
                             </tr>
                         @endforeach
-                        <!-- Type Create Button -->
+                        <!-- Technology Create Button -->
                         <tr class="text-center">
                             <td colspan="4" class="py-4">
-                                <a href="{{ route('admin.types.create') }}" class="text-decoration-none">Crea una Nuova Tipologia</a>
+                                <a href="{{ route('admin.technologies.create') }}" class="text-decoration-none">Crea una Nuova Tecnologia</a>
                             </td>
                         </tr>
                     </tbody>
@@ -71,5 +71,5 @@
             </div>
         </div>
     </div>
-    @include('admin.partials.modal_type_delete');
+    @include('admin.partials.modal_technology_delete');
 @endsection
